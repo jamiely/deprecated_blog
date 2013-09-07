@@ -2,18 +2,22 @@
 layout: post
 title: "A New Job, a New Language"
 date:   2013-09-06 23:47:38
-categories: scala functional
+categories: functional programming
+tags:
+  - scala
+  - functional programming
+  - programming languages
 ---
 
 # A New Start
 
 I started a new job a couple weeks ago. As part of my duties I'll be
-writing [Scala](). 
+writing [Scala](http://www.scala-lang.org/). 
 
 I've only had a little bit of experience with Scala in the past, having
-completed a simple [Connect Four]() implementation. Although basic, the
+completed a simple [Connect Four](https://github.com/jamiely/connect-four-scala) implementation. Although basic, the
 experience gave me an opportunity to become accustomed to some of
-Scala's unique syntax, as well as its preferred build tool, [sbt]().
+Scala's unique syntax, as well as its preferred build tool, [sbt](http://www.scala-sbt.org/).
 
 Learning a new language is always fun for me, especially those that
 introduce me to new ideas about programming, and especially interesting
@@ -27,8 +31,7 @@ mystifying that I'll describe below.
 There's syntactic sugar that converts a method invocation on an object
 into a invocation on its `apply` method, allowing for some nice
 DSL-goodness. Take, for example, the use of pattern as part of the `Action`
-DSL used in controllers in the [Scala Play
-Framework](http://www.playframework.com/) (as of 2.1.3). 
+DSL used in controllers in the [Scala Play Framework](http://www.playframework.com/) (as of 2.1.3). 
 
 ```scala
 class MyController extends Controller {
