@@ -15,7 +15,7 @@ html, body { height: 100%; }
 body {
   background-color: #FFF;
   font: 13.34px Helvetica, Arial, sans-serif;
-  font-size: small;
+  font-size: large;
   text-align: center;
 }
 
@@ -58,9 +58,9 @@ ul.posts span {
 .site {
   font-size: 115%;
   text-align: justify;
-  width: 42em;
+  width: 35em;
   margin: 3em auto 2em;
-  line-height: 1.5em;
+  line-height: 1.6em;
 }
 
 .site .header a {
@@ -126,6 +126,10 @@ ul.posts span {
 /* Posts
 /*
 /*****************************************************************************/
+
+.post-title {
+  font-size: 150%;
+}
 
 /* standard */
 .post pre {

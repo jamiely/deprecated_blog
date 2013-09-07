@@ -7,6 +7,7 @@ tags:
   - scala
   - functional programming
   - programming languages
+comments: true
 ---
 
 # A New Start
@@ -95,7 +96,7 @@ methods if none are given. See the following example:
 ```scala
 def p(implicit s:String) = println(s)
 implicit val i: String = "Hello"
-p // i is automatically supplied because it is labeled implicit
+p // i is automatically supplied
 // > Hello
 p("Hi")
 // > Hi
