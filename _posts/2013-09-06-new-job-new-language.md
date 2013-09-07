@@ -2,7 +2,7 @@
 layout: post
 title: "A New Job, a New Language"
 date:   2013-09-06 23:47:38
-categories: functional programming
+categories: programming
 tags:
   - scala
   - functional programming
