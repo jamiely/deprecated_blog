@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html>
-  <body>
-    <ul>
-      <li>
-        <a href="2013_09_06_new_job_new_language.md">
-          2013-09-06: A New Job a New Language</a>
-      </li>
-    </ul>
-  </body>
-</html>
+---
+layout: default
+title: Your New Jekyll Site
+---
+
+<div id="home">
+  <h1>Blog Posts</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+</div>
