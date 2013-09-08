@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Is recursion fundamental knowledge?"
+title: "Is Recursion Fundamental Knowledge?"
 date:   2013-09-10 07:00:00
 categories: programming
 tags:
