@@ -6,6 +6,7 @@ categories: programming
 tags:
   - interviews
   - programming practice
+  - recursion
 comments: true
 ---
 
@@ -33,8 +34,9 @@ smaller versions of themselves.
 # Disclaimer
 
 I don't expect applicants to give me _my_ definition. Any related
-definitions or possible applications would also be excellent answers.
-MORE ABOUT THIS?
+definitions or possible applications would also be excellent answers. I
+like answers that are open for discussion. Discussion is the best way to
+figure out if someone really knows what they are talking about.
 
 # Disagreement
 
@@ -42,14 +44,14 @@ There has been disagreement among my colleagues about whether it's fair
 to ask about recursion. Frankly, I can see how a programmer could go
 through his career without needing to use it. This is how we get
 interfaces which arbitrarily limit the display or creation of
-hierarchies to some constant depth of `n`. These are the same
+hierarchies to some constant depth. These are the same
 programmers who when asked about recursion will say it is a form of
 iteration and leave it at that. 
 
 # Application versus Concept
 
 The thing that interests me about the lack of knowledge about something
-so basic as recusion is that programmers who can't explain the concept
+so basic as recursion is that programmers who can't explain the concept
 have very little hope of describing an application. I don't believe this
 is true of most other basic concepts such as Polymorphism, Decoupling,
 and Generics, for example. There is a better chance of someone knowing
