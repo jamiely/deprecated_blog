@@ -7,7 +7,7 @@ tags:
   - holidays
   - sounds
   - sound board
-comments: true
+comments: false
 ---
 
 For our first annual, digital, family newsletter, we decided to have a
