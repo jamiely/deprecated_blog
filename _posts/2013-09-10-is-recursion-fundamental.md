@@ -7,7 +7,7 @@ tags:
   - interviews
   - programming practice
   - recursion
-comments: true
+comments: false
 ---
 
 # Interviewing

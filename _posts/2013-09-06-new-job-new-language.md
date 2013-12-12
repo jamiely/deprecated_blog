@@ -7,7 +7,7 @@ tags:
   - scala
   - functional programming
   - programming languages
-comments: true
+comments: false
 ---
 
 # A New Start
