@@ -115,6 +115,7 @@ Here is my storyboard:
 
 # Next
 
-In the next installment, I'll discuss the remaining steps in the
+In the [part 2]({% post_url 2014-01-27-quick-guide-to-writing-a-storybook-pt2 %}), 
+I'll discuss the remaining steps in the
 framework, and show more of my WIP.
 
