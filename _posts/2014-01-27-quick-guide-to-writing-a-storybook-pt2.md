@@ -117,6 +117,6 @@ give you a greater sense of completion along each step along the way.
 
 In the next installment, I'll discuss the remaining steps in the
 framework, and show the first full draft of the WIP. I'll also 
-discuss refinement.
+discuss further refinement.
 
 
