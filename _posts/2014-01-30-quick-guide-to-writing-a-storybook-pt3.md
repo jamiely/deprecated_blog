@@ -23,7 +23,8 @@ reveal my first draft WIP, and discuss the refinement step.
 3. <del>Layout the story</del>
 4. <del>Storyboard the scenes</del>
 5. <del>Flesh out the story</del>
-6. Refine
+6. <del>Refine</del>
+7. Further Refinement
 
 # Producing Art
 
@@ -57,6 +58,14 @@ another purpose? Will you want to reuse art? How important is time
 versus style? For example, you could create your vector art in a way
 that minimizes the total amount of content you need to create. 
 
+Here's a comparison of a couple different styles of the same scene:
+
+![Moon Throwing Up Painting](/assets/2014-01-30-moon_throwing_up_painting.png)
+
+![Moon Throwing Up Sketch](/assets/2014-01-30-moon_throwing_up_sketch.png)
+
+![Moon Throwing Up Vector](/assets/2014-01-30-moon_throwing_up_vector.png)
+
 # First WIP
 
 As I created sketches and began to flesh out the artwork, I had to make
@@ -74,7 +83,7 @@ Microsoft PowerPoint.
 
 <iframe src="https://docs.google.com/presentation/d/1fLGz41TkzqPEKT5pHnN1xx2anVDw5NqukYnwFsLiJnM/embed?start=false&loop=false&delayms=60000" frameborder="0" width="480" height="389" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
 
-# Refinement
+# Further Refinement
 
 Even though the storybook is starting to come together, there are a
 number of problems. As mentioned above, the style of the drawings
@@ -102,13 +111,13 @@ considering.
 
 # Conclusion
 
-I'll continue to work on this, and you should find a link to the raw
-artwork and text on my [Github](https://github.com/jamiely) profile
-soon. There are two important things that I think are useful to take
+I'll continue to work on this, and you can find my most recent work
+product on [Github](https://github.com/jamiely/moony-eat).
+ There are two important things that I think are useful to take
 away from this series of articles. 
 
-Firstly, that we can use a simple, straightforward, and procedural
-framework to create something new and engaging. Secondly, that rather
+First, that we can use a simple, straightforward, and procedural
+framework to produce something creative. Second, that rather
 than relying on great, masterful sweeps of innovation, we can
-methodically works towards success via continous refinement. 
+methodically work towards success via continuous refinement. 
 
