@@ -40,30 +40,45 @@ how to merge scenes. Don’t fall into the trap of narcissistic writing,
 just focus on telling a tight, entertaining story. 
 
 > Secondary Scene: The moon hangs out with the sun. 
+>
 > Primary Scene: The moon runs around the heavens. (Beginning)
+>
 > Secondary Scene: The moon plays with building blocks 
+>
 > Secondary Scene: The moon plays with puzzle pieces
 > 
+>
 > Secondary Scene: The moon mommy feeds the moon a meal of star flakes.
+>
 > Primary Scene: The moon throws its food out, which become stars. (Middle?)
+>
 > Secondary Scene: The moon mommy scolds the moon and tells him he needs
 > to eat to stay strong.
 > 
+>
 > Secondary Scene: The moon gets weaker and more dim.
+>
 > Primary Scene: The moon goes hungry and stops speaking. (End)
+>
 > Secondary Scene: Stars drag the moon around playfully.
 
 Edited to merge scenes:
 
 > MERGED Primary Scene: The moon runs around the heavens with the sun.
+>
 > (Beginning)
+>
 > MERGED Secondary Scene: The moon plays with building blocks and puzzle pieces.
 > 
+>
 > MERGED Secondary Scene: The moon mommy feeds the moon a meal of star
 > flakes, cautioning that he should eat to stay strong.
+>
 > Primary Scene: The moon throws its food out, which become stars. (Middle?)
 > 
+>
 > Secondary Scene: The moon gets weaker and more dim.
+>
 > MERGED Primary Scene: The moon goes hungry and is carried around by stars (End)
 
 As you create new scenes and storyboard, you may want to revise other
@@ -72,15 +87,15 @@ is a more dynamic or entertaining scene that you want to portray.
 
 Here are my new scenes:
 
-MERGED Secondary Scene: The moon plays with building blocks and puzzle
-pieces.
-
-![Moony playing with a puzzle](/assets/2013-01-27-moon_playing_with_puzzle.png)
-
-MERGED Secondary Scene: The moon mommy feeds the moon a meal of star
-flakes, cautioning that he should eat to stay strong.
-
-![Sunny scolding Moony](/assets/2013-01-27-sun_scolding_moon.png)
+> MERGED Secondary Scene: The moon plays with building blocks and puzzle
+> pieces.
+> 
+> ![Moony playing with a puzzle](/assets/2013-01-27-moon_playing_with_puzzle.png)
+> 
+> MERGED Secondary Scene: The moon mommy feeds the moon a meal of star
+> flakes, cautioning that he should eat to stay strong.
+> 
+> ![Sunny scolding Moony](/assets/2013-01-27-sun_scolding_moon.png)
 
 # Refinement
 
@@ -99,6 +114,7 @@ give you a greater sense of completion along each step along the way.
 
 > MERGED Primary Scene: The moon runs around the heavens with the sun.
   (Beginning)
+>
 > MERGED Secondary Scene: The moon plays with building blocks and puzzle pieces.
 >
 > ![Moony plays with a puzzle](/assets/2013-01-27-moon_playing_sketch.png)
