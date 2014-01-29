@@ -14,13 +14,17 @@ html, body { height: 100%; }
 
 body {
   background-color: #FFF;
-  font: 13.34px Helvetica, Arial, sans-serif;
+  color: #222;
+  font: 13.34px Georgia, Cambria, 'Times New Roman', Times, serif;
   font-size: large;
   text-align: center;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-size: 100%; }
+  color: #000;
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 140%; 
+}
 
 h1 { margin-bottom: 1em; }
 p { margin: 1em 0; }
@@ -165,4 +169,8 @@ ul.posts span {
 
 .post > h1 {
   margin-top: 2em;
+}
+
+.post > blockquote {
+  margin-left: 2em;
 }
