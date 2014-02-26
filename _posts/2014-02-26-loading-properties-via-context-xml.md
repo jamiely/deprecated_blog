@@ -60,13 +60,20 @@ Here's what I had to do:
    resource"
 3. Add `jee` namespace to my `beans.xml` [2]
 4. Add an entry to perform a *JNDI* lookup in my `beans.xml`:
-   `<jee:jndi-lookup id="beanConfigPath" jndi-name="CONFIG_PATH"/>`
+
+   ```xml
+   <jee:jndi-lookup 
+     id="beanConfigPath" 
+     jndi-name="CONFIG_PATH"/>
+   ```
 5. In my `beans.xml` `PropertyPlaceholderConfigurer` entry, reference
    the bean above:
+
    ```xml
    <bean id="propertyConfigurer" 
      class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-     <property name="location" ref="beanConfigPath" />
+     <property name="location" 
+       ref="beanConfigPath" />
    </bean>
    ```
 
