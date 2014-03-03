@@ -17,7 +17,9 @@ tags:
 - coffeescript
 comments: []
 ---
-A friend asked for a script to converted a tabbed list of data to a nested HTML list. Here it is:&nbsp;http://codepen.io/jamiely/pen/AbEjd. Before working on this, I didn't know CodePen had live CoffeeScript editing. That feature moves it into the favorite spot above jsfiddle for live code editing.
+A friend asked for 
+[a script to converted a tabbed list of data to a nested HTML list](http://blog.jamie.ly/programming/2013/04/29/tabbed-list-to-html-in-coffeescript.html). 
+ Before working on this, I didn't know CodePen had live CoffeeScript editing. That feature moves it into the favorite spot above jsfiddle for live code editing.
 
 Given a sample of text like this:
 
@@ -129,7 +131,8 @@ parse = (lines) ->
   ulEnd()
   ptAccum.join "\n"
  
-# Does the bulk of the parsing job, keeping track of the indentation level
+# Does the bulk of the parsing job, keeping track 
+# of the indentation level
 parseTuples = (tuples, level) ->
   stop = false
   _p = ->
@@ -137,7 +140,8 @@ parseTuples = (tuples, level) ->
     curLevel = t['level']
     index++
     if curLevel == level
-      # sibling, process the current at the same level
+      # sibling, process the current 
+      #at the same level
       li(t)
     else if curLevel < level
       # we want to unindent
@@ -172,7 +176,8 @@ tabCount = (line) ->
  
   tc
  
-# Converts the passed line to a map containing the line and meta-data about the line
+# Converts the passed line to a map containing the 
+# line and meta-data about the line
 lineToMap = (line) ->
   line: line
   level: tabCount line
@@ -181,7 +186,8 @@ lineToMap = (line) ->
 blank = (line) ->
   !line || line.length == 0 || line.match /^ *$/
  
-# Converts the passed lines into maps rperesenting the line
+# Converts the passed lines into maps 
+# representing the line
 linesToMaps = (lines) ->
   lineToMap line for line in lines when !(blank line)
 ```
