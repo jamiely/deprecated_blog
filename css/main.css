@@ -52,10 +52,14 @@ ul.posts li {
   line-height: 1.75em;
 }
 
-ul.posts span {
-  color: #4E5C27;
+ul.posts span.date {
+  color: #CCC;
   font-family: Monaco, "Courier New", monospace;
-  font-size: 80%;
+  font-size: 60%;
+}
+ul.posts span.separator {
+  font-size: 60%;
+  color: #CCC;
 }
 
 /*****************************************************************************/
@@ -87,8 +91,22 @@ ul.posts span {
 .site .header h1.title .name {
   color: #E3B22A;
 }
+.site .header h1.title .name {
+  margin-right: 0.5em;
+}
 
 .site .header h1.title a:hover {
+  color: #000;
+}
+
+.site .header h1.links {
+  float: right;
+  font-size: 150%;
+}
+.site .header h1.links a {
+  color: #E3B22A;
+}
+.site .header h1.links a:hover {
   color: #000;
 }
 
@@ -102,7 +120,7 @@ ul.posts span {
 }
 
 .site .meta {
-  color: #aaa;
+  color: #4E5C27;
 }
 
 .site .footer {
