@@ -4,12 +4,6 @@
 /*
 /*****************************************************************************/
 
-/* Global Reset */
-* {
-  margin: 0;
-  padding: 0;
-}
-
 html, body { height: 100%; }
 
 body {
@@ -18,6 +12,8 @@ body {
   font: 13.34px Georgia, Cambria, 'Times New Roman', Times, serif;
   font-size: large;
   text-align: center;
+  margin: 0 auto;
+  max-width: 7in;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,6 +42,7 @@ a:visited {
 ul.posts {
   list-style-type: none;
   margin-bottom: 2em;
+  padding-left: 5px;
 }
 
 ul.posts li {
@@ -53,13 +50,13 @@ ul.posts li {
 }
 
 ul.posts span.date {
-  color: #CCC;
+  color: #AAA;
   font-family: Monaco, "Courier New", monospace;
   font-size: 60%;
 }
 ul.posts span.separator {
   font-size: 60%;
-  color: #CCC;
+  color: #AAA;
 }
 
 /*****************************************************************************/
@@ -71,8 +68,7 @@ ul.posts span.separator {
 .site {
   font-size: 115%;
   text-align: left;
-  width: 35em;
-  margin: 3em auto 2em;
+  max-width: 7in;
   line-height: 1.6em;
 }
 
@@ -199,4 +195,19 @@ ul.posts span.separator {
 
 .post > blockquote {
   margin-left: 2em;
+}
+
+@media only screen 
+  and (min-device-width : 320px) 
+  and (max-device-width : 568px) 
+  and (orientation : portrait) { 
+  body {
+    max-width: 9in;
+  }
+  .site {
+    max-width: 9in;
+  }
+  ul.posts {
+    padding-left: 0px;
+  }
 }
