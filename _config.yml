@@ -1,3 +1,8 @@
-name: Forever a Student
+name: Jamie Ly
 markdown: redcarpet
 pygments: true
+about_me: >
+  I am a polyglot, full-stack developer with experience in front-end
+  web development, back-end development including RESTful APIs, 
+  native iOS development, and devops focusing on Chef. I am interested in
+  software maintainability, functional programming, and game development.
