@@ -19,7 +19,7 @@ Chef by writing a cookbook and deploying via `knife solo`.
 
 This will seem like a lot of work to deploy an application, but makes
 more sense if you are setting up a more distributed application. For
-example, we could have 3 web servers running this application on tomcat,
+example, we could have 3 web servers running this application on Tomcat,
 with another server setup to load balance using `nginx`, using `redis` as
 a distributed cache, and `postgres` as the database, across two
 servers setup with replication.
@@ -86,7 +86,7 @@ mvn tomcat7:run
 ```
 
 Running the command above will run our application in its own instance
-of tomcat. After running the command, you'll see several logging
+of Tomcat. After running the command, you'll see several logging
 statements including something that looks like:
 
 ```
