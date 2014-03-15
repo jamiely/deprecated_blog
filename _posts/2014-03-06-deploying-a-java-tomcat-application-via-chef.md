@@ -12,6 +12,18 @@ tags:
 comments: false
 ---
 
+# Intro
+
+We will write a simple REST application and deploy it to a server using
+Chef by writing a cookbook and deploying via `knife solo`. 
+
+This will seem like a lot of work to deploy an application, but makes
+more sense if you are setting up a more distributed application. For
+example, we could have 3 web servers running this application on tomcat,
+with another server setup to load balance using `nginx`, using `redis` as
+a distributed cache, and `postgres` as the database, across two
+servers setup with replication.
+
 # Creating the project
 
 Let's first create a dummy application to upload. This assumes you have
