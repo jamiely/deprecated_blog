@@ -2,6 +2,7 @@ name: Jamie Ly
 markdown: redcarpet
 pygments: true
 safe: true
+url: http://blog.jamie.ly
 about_me: >
   I am a polyglot, full-stack developer with experience in front-end
   web development, back-end development including RESTful APIs, 
