@@ -39,23 +39,65 @@ comments:
   content: '[&#8230;] MonoGame &ldquo;Hello World&rdquo; on Mac OS X and Xamarin Studio&nbsp;and&nbsp;Setting
     up a MonoGame Mac Application with Xamarin Studio [&#8230;]'
 ---
-<h1 id="intro">Intro</h1>
-I wanted to try out the <a href="https://monogame.codeplex.com/">MonoGame framework</a>, which allows for creating cross-platform games based on the XNA API. It wasn't straightforward for me to run a Mac example (on OS X Mountain Lion). There were a number of steps I had to go through to get things working, including combing through forum posts. <a href="https://github.com/mono/MonoGame/wiki/Tutorials%3AInstalling-Prerequisites-on-MacOS-for-MonoMac-project">The official instructions didn't seem to work, or I couldn't find the most recent update.</a> It's for situations like these I wish I had the foresight to journal my progress so that others don't get tripped up. Here are instructions I followed (assembled after the fact, so I might've missed something) in case someone finds them useful.
-<h1 id="summary">Steps</h1>
-<ol style="list-style-type: decimal;">
-	<li><a href="http://monodevelop.com/Download">Install Xamarin Studio</a> and the specified dependencies (mono, gtk+).</li>
-	<li><a href="https://monogame.codeplex.com/releases/view/102870">Install the MonoGame project template for Xamarin Studio</a></li>
-	<li>Install XCode from the Mac App Store.</li>
-	<li>Open Xamarin Studio and perform updates.</li>
-	<li>Create a new MonoGame Mac Project.</li>
-	<li>In References, you may see MonoGame.Framework. As of 20130422, this is the incorrect framework. Command click on Refrences > Edit References > .Net Assembly > Navigate to <code>~/Library/Application Support/XamarinStudio-4.0/LocalInstall/Addins/MonoDevelop.MonoGame.3.0.1/assemblies/MacOS/</code> and select <code>MonoGame.Framework.dll</code> > Press OK. Delete the other reference to MonoGame.Framework.</li>
-	<li>Running the project, you may get an error like: "Microsoft.Xna.Framework.Content.ContentLoadException: Could not load logo asset". Select <code>Content > logo.png</code> in the file pane at the left. Click the Gear Icon > Build Action > Select BundleResource.</li>
-	<li>Run the project again. You may get an error like "System.MissingMethodException: Method not found: 'MonoMac.AppKit.NSImage.AsCGImage'". <a href="https://monogame.codeplex.com/discussions/437680#editor">This forum post helped me to resolve it.</a>.</li>
-	<li>Clone maccore to your code directory <code>git://github.com/mono/maccore.git</code></li>
-	<li>Clone monomac to your code directory <code>git://github.com/mono/monomac.git</code></li>
-	<li>Run <code>make</code> inside the monomac project.</li>
-	<li>If you get an error about missing <code>mdtool</code>, you can either install <a href="http://sourceforge.net/projects/monodevelop.mirror/files/">an old version of MonoDevelop (< 4) from SourceForge</a> or try to symlink mdtool to the location requested from <code>/Applications/Xamarin Studio.app/Contents/MacOS/mdtool</code></li>
-	<li>Find one of the MonoMac.dll binaries from the samples directories, for example, at <code>samples/MonoMacGameWindow/bin/Debug/MonoMac.dll</code>, copy it somewhere you can use for your project.</li>
-	<li>Add the <code>MonoMac.dll</code> assembly to your project as a Reference, like we did for <code>MonoGame.Framework.dll</code>, above. Delete the other reference to MonoMac.</li>
-	<li>Now, when you run the project, a window with a blue background should appear, displaying the MonoGame logo.</li>
-</ol>
+
+Intro
+=====
+
+I wanted to try out the [MonoGame
+framework](https://monogame.codeplex.com/), which allows for creating
+cross-platform games based on the XNA API. It wasn't straightforward for
+me to run a Mac example (on OS X Mountain Lion). There were a number of
+steps I had to go through to get things working, including combing
+through forum posts. [The official instructions didn't seem to work, or
+I couldn't find the most recent
+update.](https://github.com/mono/MonoGame/wiki/Tutorials%3AInstalling-Prerequisites-on-MacOS-for-MonoMac-project)
+It's for situations like these I wish I had the foresight to journal my
+progress so that others don't get tripped up. Here are instructions I
+followed (assembled after the fact, so I might've missed something) in
+case someone finds them useful.
+
+Steps
+=====
+
+1.  [Install Xamarin Studio](http://monodevelop.com/Download) and the
+    specified dependencies (mono, gtk+).
+2.  [Install the MonoGame project template for Xamarin
+    Studio](https://monogame.codeplex.com/releases/view/102870)
+3.  Install XCode from the Mac App Store.
+4.  Open Xamarin Studio and perform updates.
+5.  Create a new MonoGame Mac Project.
+6.  In References, you may see MonoGame.Framework. As of 20130422, this
+    is the incorrect framework. Command click on Refrences \> Edit
+    References \> .Net Assembly \> Navigate to
+    `~/Library/Application Support/XamarinStudio-4.0/LocalInstall/Addins/MonoDevelop.MonoGame.3.0.1/assemblies/MacOS/`
+    and select `MonoGame.Framework.dll` \> Press OK. Delete the other
+    reference to MonoGame.Framework.
+7.  Running the project, you may get an error like:
+    "Microsoft.Xna.Framework.Content.ContentLoadException: Could not
+    load logo asset". Select `Content > logo.png` in the file pane at
+    the left. Click the Gear Icon \> Build Action \> Select
+    BundleResource.
+8.  Run the project again. You may get an error like
+    "System.MissingMethodException: Method not found:
+    'MonoMac.AppKit.NSImage.AsCGImage'". [This forum post helped me to
+    resolve
+    it.](https://monogame.codeplex.com/discussions/437680#editor).
+9.  Clone maccore to your code directory
+    `git://github.com/mono/maccore.git`
+10. Clone monomac to your code directory
+    `git://github.com/mono/monomac.git`
+11. Run `make` inside the monomac project.
+12. If you get an error about missing `mdtool`, you can either install
+    [an old version of MonoDevelop (\< 4) from
+    SourceForge](http://sourceforge.net/projects/monodevelop.mirror/files/)
+    or try to symlink mdtool to the location requested from
+    `/Applications/Xamarin Studio.app/Contents/MacOS/mdtool`
+13. Find one of the MonoMac.dll binaries from the samples directories,
+    for example, at `samples/MonoMacGameWindow/bin/Debug/MonoMac.dll`,
+    copy it somewhere you can use for your project.
+14. Add the `MonoMac.dll` assembly to your project as a Reference, like
+    we did for `MonoGame.Framework.dll`, above. Delete the other
+    reference to MonoMac.
+15. Now, when you run the project, a window with a blue background
+    should appear, displaying the MonoGame logo.
+
