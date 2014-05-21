@@ -21,36 +21,17 @@ tags:
 - monogame
 - monomac
 - dotnet
-comments:
-- id: 3374
-  author: paytonrules
-  author_email: twitter.1437841@example.com
-  author_url: http://twitter.com/paytonrules
-  date: '2013-04-23 22:22:33 -0400'
-  date_gmt: '2013-04-24 03:22:33 -0400'
-  content: '@jamiely There''s a mistake - the MonoGame Framework is in ~/Library/Application
-    Support/blah blah - you forgot the Application Support.'
-- id: 4716
-  author: 'MonoGame on OSX | Development Blog: Sam Cartwright'
-  author_email: ''
-  author_url: http://samcsss.wordpress.com/2014/02/24/monogame-on-osx/
-  date: '2014-02-24 07:24:29 -0500'
-  date_gmt: '2014-02-24 12:24:29 -0500'
-  content: '[&#8230;] MonoGame &ldquo;Hello World&rdquo; on Mac OS X and Xamarin Studio&nbsp;and&nbsp;Setting
-    up a MonoGame Mac Application with Xamarin Studio [&#8230;]'
 ---
 
 Intro
 =====
 
-I wanted to try out the [MonoGame
-framework](https://monogame.codeplex.com/), which allows for creating
+I wanted to try out the [MonoGame framework](https://monogame.codeplex.com/), 
+which allows for creating
 cross-platform games based on the XNA API. It wasn't straightforward for
 me to run a Mac example (on OS X Mountain Lion). There were a number of
 steps I had to go through to get things working, including combing
-through forum posts. [The official instructions didn't seem to work, or
-I couldn't find the most recent
-update.](https://github.com/mono/MonoGame/wiki/Tutorials%3AInstalling-Prerequisites-on-MacOS-for-MonoMac-project)
+through forum posts. [The official instructions didn't seem to work, or I couldn't find the most recent update.](https://github.com/mono/MonoGame/wiki/Tutorials%3AInstalling-Prerequisites-on-MacOS-for-MonoMac-project)
 It's for situations like these I wish I had the foresight to journal my
 progress so that others don't get tripped up. Here are instructions I
 followed (assembled after the fact, so I might've missed something) in
@@ -79,9 +60,7 @@ Steps
     BundleResource.
 8.  Run the project again. You may get an error like
     "System.MissingMethodException: Method not found:
-    'MonoMac.AppKit.NSImage.AsCGImage'". [This forum post helped me to
-    resolve
-    it.](https://monogame.codeplex.com/discussions/437680#editor).
+    'MonoMac.AppKit.NSImage.AsCGImage'". [This forum post helped me to resolve it.](https://monogame.codeplex.com/discussions/437680#editor).
 9.  Clone maccore to your code directory
     `git://github.com/mono/maccore.git`
 10. Clone monomac to your code directory
