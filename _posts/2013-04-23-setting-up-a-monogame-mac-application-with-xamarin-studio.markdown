@@ -9,7 +9,7 @@ author_email: me@jamie.ly
 author_url: http://jamie.ly
 wordpress_id: 4761
 wordpress_url: http://jamie.ly/wordpress/?p=4761
-date: 2013-04-23 07:00:48.000000000 -04:00
+date: 2013-04-23 07:00:48
 categories:
 - Software
 tags:
