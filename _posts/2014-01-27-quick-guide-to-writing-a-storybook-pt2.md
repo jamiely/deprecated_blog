@@ -11,7 +11,7 @@ comments: false
 # Intro
 
 See the 
-[last post]({% post_url 2014-01-23-quick-guide-to-writing-a-storybook-pt1 %})
+[last post](/writing/2014/01/23/quick-guide-to-writing-a-storybook-pt1.html)
 for the first part of the guide.
 
 # Process
@@ -132,7 +132,7 @@ give you a greater sense of completion along each step along the way.
 # Next
 
 In the 
-[next installment]({% post_url 2014-01-30-quick-guide-to-writing-a-storybook-pt3 %}), 
+next installment,
 I'll discuss the remaining steps in the
 framework, and show the first full draft of the WIP. I'll also 
 discuss further refinement.

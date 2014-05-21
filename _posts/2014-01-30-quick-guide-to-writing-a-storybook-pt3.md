@@ -10,9 +10,7 @@ comments: false
 
 # Intro
 
-See the 
-[first part of the guide]({% post_url 2014-01-23-quick-guide-to-writing-a-storybook-pt1 %}), and
-the [previous as well]({% post_url 2014-01-27-quick-guide-to-writing-a-storybook-pt2 %}). In this
+See the [previous part of the guide](/writing/2014/01/27/quick-guide-to-writing-a-storybook-pt2.html). In this
 installment, I'll discuss some methods of producing art for the book,
 reveal my first draft WIP, and discuss the refinement step.
 
