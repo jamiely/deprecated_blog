@@ -27,17 +27,31 @@ tags:
 - ImageMagick
 comments: []
 ---
-<h2>Introduction</h2>
-I recently finished a game for iOS called Bunny Matcher. This will probably be my last iOS app for awhile, as I want to do more Android development. I&rsquo;m also ramping up with my new job doing iOS development, so I get plenty of practice with Objective-C every day.
+Introduction
+------------
 
-Bunny Matcher has the same concept as the classic game <a href="http://www.youtube.com/watch?v=9RtRykIE_1A">Super Munchers</a>. You control a bunny which must match words on a grid to a presented topic. For example, if the topic is Planets, you may have to select words like Mars, Earth, and Venus. Conflict comes in the form of non-topic words, which penalize the player by hurting his score, and a fox that moves across the board. The player must avoid the fox, as touching the fox costs 1 of 3 total lives.
+I recently finished a game for iOS called Bunny Matcher. This will
+probably be my last iOS app for awhile, as I want to do more Android
+development. I’m also ramping up with my new job doing iOS development,
+so I get plenty of practice with Objective-C every day.
 
-<a href="http://jamie.ly/wordpress/wp-content/uploads/2013/01/iOS-Simulator-Screen-shot-Dec-31-2012-11.54.42-PM.png"><img class="aligncenter size-medium wp-image-4630" title="iOS Simulator Screen shot Dec 31, 2012 11.54.42 PM" alt="" src="http://jamie.ly/wordpress/wp-content/uploads/2013/01/iOS-Simulator-Screen-shot-Dec-31-2012-11.54.42-PM-300x225.png" width="300" height="225" /></a>
+Bunny Matcher has the same concept as the classic game [Super
+Munchers](http://www.youtube.com/watch?v=9RtRykIE_1A). You control a
+bunny which must match words on a grid to a presented topic. For
+example, if the topic is Planets, you may have to select words like
+Mars, Earth, and Venus. Conflict comes in the form of non-topic words,
+which penalize the player by hurting his score, and a fox that moves
+across the board. The player must avoid the fox, as touching the fox
+costs 1 of 3 total lives.
+
+[![](http://jamie.ly/wordpress/wp-content/uploads/2013/01/iOS-Simulator-Screen-shot-Dec-31-2012-11.54.42-PM-300x225.png "iOS Simulator Screen shot Dec 31, 2012 11.54.42 PM")](http://jamie.ly/wordpress/wp-content/uploads/2013/01/iOS-Simulator-Screen-shot-Dec-31-2012-11.54.42-PM.png)
 
 I spent between 25 and 40 hours on the game (I really should start to measure the time more accurately). With 5 to 10 hours spent on the graphics, which might be surprising since they are so basic. It&rsquo;s tough to get more accurate with the time, because, as a working father, I have to squeeze in project time here and there. The graphics were done in Inkscape, which I haven&rsquo;t used in a while for anything substantial, so part of the time was the learning curve there. I&rsquo;m most proficient with Illustrator.
 
-<a href="http://jamie.ly/wordpress/wp-content/uploads/2013/01/bunny_sprites.png"><img class="aligncenter size-medium wp-image-4634" title="bunny_sprites" alt="" src="http://jamie.ly/wordpress/wp-content/uploads/2013/01/bunny_sprites-300x72.png" width="300" height="72" /></a>
-<h2>Project walkthrough</h2>
+[![](http://jamie.ly/wordpress/wp-content/uploads/2013/01/bunny_sprites-300x72.png "bunny_sprites")](http://jamie.ly/wordpress/wp-content/uploads/2013/01/bunny_sprites.png)
+
+Project walkthrough
+-------------------
 What follows is a brief description of the process of writing this app. I am looking through the commit log to refresh my memory.
 
 ```bash
@@ -58,27 +72,75 @@ As movement became more complicated and the enemy and hero shared movement funct
 
 Round completion was the next major enhancement. Once the player had matched all the words with the presented topic, the next round would start, with a new topic. This would continue until the player lost by losing all her lives or running out of time.
 
-At this point, I went on <a href="http://opengameart.org">http://opengameart.org</a> and found a few suitable sprite sheets to use in animating the hero and enemy. Specifically, I used <a href="http://opengameart.org/content/kit-the-firefox-mascot">this fox animation</a> and <a href="http://opengameart.org/content/tux-the-linux-mascot">a Tux animation</a> by the same artist. These would serve as placeholders until the very end of the project, when I worked on my own sprites. Further work was also done on refining the flow from frame to frame.
+At this point, I went on
+[http://opengameart.org](http://opengameart.org) and found a few
+suitable sprite sheets to use in animating the hero and enemy.
+Specifically, I used [this fox
+animation](http://opengameart.org/content/kit-the-firefox-mascot) and [a
+Tux animation](http://opengameart.org/content/tux-the-linux-mascot) by
+the same artist. These would serve as placeholders until the very end of
+the project, when I worked on my own sprites. Further work was also done
+on refining the flow from frame to frame.
 
 One of the big comments I got from playtesting is that the original topics I seeded the game with were too difficult. They included gemstones, obscure dinosaurs, and types of fish. I simplified them later to make the game much more simple, as it is intended for kids anyway.
 
-It&rsquo;s funny how much sound can improve a game. I implemented a simple sound manager to play sound effects I generated using the <a href="http://www.bfxr.net/">Bxfr tool</a>. It&rsquo;s really simple to make old-school sound effects. Although I think the game could further benefit from some sort of background music, I submitted the first version without it.
+It’s funny how much sound can improve a game. I implemented a simple
+sound manager to play sound effects I generated using the [Bxfr
+tool](http://www.bfxr.net/). It’s really simple to make old-school sound
+effects. Although I think the game could further benefit from some sort
+of background music, I submitted the first version without it.
 
 The remaining commits added further polish including work on view controller flow, UI modifications, and the addition of graphics.
 
-Speaking of UI modifications, I found at several points throughout the project that adding new subviews to the Board view would cause unexpected effects with regards to auto layout, causing hero and enemy animations to go haywire. The hero would start to move somewhere, and then get teleported back to its original position. It took me awhile to figure out this was due to constraints. Although I tried to programmatically remove constraints on the animated views, this didn&rsquo;t seem to rectify the problem. I concede that I did not investigate the solution much, and might&rsquo;ve been doing something wrong. The solution I wound up applying was to modify constraint priorities until the views could animate freely.
-<h2>Animation</h2>
-I used Inkscape to draw the graphics. I&rsquo;m much more experienced with Illustrator, so I found working with it very clunky. <a href="https://bugs.launchpad.net/inkscape/+bug/307005">I also ran into a nasty bug that I thought was a feature, that caused pasted objects to be inserted as bitmaps</a>. Once I learned a few of the more common shortcuts, working with Inkscape wasn&rsquo;t so bad.
+Speaking of UI modifications, I found at several points throughout the
+project that adding new subviews to the Board view would cause
+unexpected effects with regards to auto layout, causing hero and enemy
+animations to go haywire. The hero would start to move somewhere, and
+then get teleported back to its original position. It took me awhile to
+figure out this was due to constraints. Although I tried to
+programmatically remove constraints on the animated views, this didn’t
+seem to rectify the problem. I concede that I did not investigate the
+solution much, and might’ve been doing something wrong. The solution I
+wound up applying was to modify constraint priorities until the views
+could animate freely.
 
-I didn&rsquo;t want to spend a lot of time on the graphics, since it is outside of the purpose of creating the application, so you&rsquo;ll find the graphics fairly basic. I&rsquo;ll briefly discuss the process of creating the animations for the uninitiated.
+Animation
+---------
 
-I worked on the bunny animation first. I looked for reference images of rabbits on Google, specifically of one at rest. I created the rough shape of a rabbit using graphical primitives such as ellipses. The following image shows the individual shapes used for the rabbit.
+I used Inkscape to draw the graphics. I’m much more experienced with
+Illustrator, so I found working with it very clunky. [I also ran into a
+nasty bug that I thought was a feature, that caused pasted objects to be
+inserted as bitmaps](https://bugs.launchpad.net/inkscape/+bug/307005).
+Once I learned a few of the more common shortcuts, working with Inkscape
+wasn’t so bad.
 
-The most important thing was to try to group the primitives by movement areas. For example, to create shapes for the legs that could be rotated to show movement. The following image shows grouped body parts.
+I didn’t want to spend a lot of time on the graphics, since it is
+outside of the purpose of creating the application, so you’ll find the
+graphics fairly basic. I’ll briefly discuss the process of creating the
+animations for the uninitiated.
 
-The Clone feature is a great way to make sure that similar shapes like those used for the legs or arms stay synchronized. By grouping body parts by movement areas, creating subsequent images based on this one is simple. For the running images, I created two new images based on this one, and rotated the body parts appropriately. I repeated this process for the fox. These images are available for use in the <a href="https://github.com/jamiely/bunny-matcher">GitHub repository</a>. They are also available from <a href="http://opengameart.org/users/jamiely">my opengameart profile page</a>.
+I worked on the bunny animation first. I looked for reference images of
+rabbits on Google, specifically of one at rest. I created the rough
+shape of a rabbit using graphical primitives such as ellipses. The
+following image shows the individual shapes used for the rabbit.
 
-Once I created the svg&rsquo;s in Inkscape, I exported the images as png&rsquo;s and used ImageMagick to stitch them together. ImageMagick provides an adjoin command that makes creating sprite sheets simple.
+The most important thing was to try to group the primitives by movement
+areas. For example, to create shapes for the legs that could be rotated
+to show movement. The following image shows grouped body parts.
+
+The Clone feature is a great way to make sure that similar shapes like
+those used for the legs or arms stay synchronized. By grouping body
+parts by movement areas, creating subsequent images based on this one is
+simple. For the running images, I created two new images based on this
+one, and rotated the body parts appropriately. I repeated this process
+for the fox. These images are available for use in the [GitHub
+repository](https://github.com/jamiely/bunny-matcher). They are also
+available from [my opengameart profile
+page](http://opengameart.org/users/jamiely).
+
+Once I created the svg’s in Inkscape, I exported the images as png’s and
+used ImageMagick to stitch them together. ImageMagick provides an adjoin
+command that makes creating sprite sheets simple.
 
 ```bash
 convert -adjoin \
@@ -96,15 +158,40 @@ convert -delay 25 \
   -loop 0 bunny_run.gif
 ```
 
-<h2>Tools</h2>
-I used various tools to complete the project. I&rsquo;ve already mentioned Inkscape and ImageMagick. I also started using the <a href="https://github.com/JugglerShu/XVim">XVim plugin</a> with this project, and I&rsquo;ve since started to use it at work as well.
+Tools
+-----
 
-I implemented a rake task to bump the version number. Some bash scripts provide simple building and distributing tasks. The <a href="https://github.com/mattt/shenzhen">shenzhen gem</a> is what I use for building and distributing test builds via TestFlight.
+I used various tools to complete the project. I’ve already mentioned
+Inkscape and ImageMagick. I also started using the [XVim
+plugin](https://github.com/JugglerShu/XVim) with this project, and I’ve
+since started to use it at work as well.
+
+I implemented a rake task to bump the version number. Some bash scripts
+provide simple building and distributing tasks. The [shenzhen
+gem](https://github.com/mattt/shenzhen) is what I use for building and
+distributing test builds via TestFlight.
 
 I used QuickTime for my screencasts and Bxfr for the sound effects.
-<h2>Conclusion</h2>
-This was a fairly entertaining project to work on, as the concept was clear in my mind. I spent a lot of time focusing on clarity of code and refactoring as I went along. One thing that I could&rsquo;ve done better was work on adding integration tests as I went along. Although I&rsquo;ve used <a href="http://testingwithfrank.com">Frank</a> for integration testing before, I didn&rsquo;t think it would be very useful in this case. I&rsquo;ve been finding Frank clunky for testing the more I use it. This application may be a good opportunity to investigate the other integration testing frameworks I&rsquo;ve been interested in, namely UIAutomation and <a href="https://github.com/square/KIF">KIF</a>.
 
-I also enjoyed working on the animation and would like to spend time on my next project playing with Blender for the graphics.
+Conclusion
+----------
 
-If you are interested in the project, <a href="https://github.com/jamiely/bunny-matcher">the source is on GitHub</a> and here&rsquo;s <a href="https://itunes.apple.com/us/app/bunny-matcher/id590498392?ls=1&amp;mt=8">a link to the Bunny Matcher in the App Store</a>.
+This was a fairly entertaining project to work on, as the concept was
+clear in my mind. I spent a lot of time focusing on clarity of code and
+refactoring as I went along. One thing that I could’ve done better was
+work on adding integration tests as I went along. Although I’ve used
+[Frank](http://testingwithfrank.com) for integration testing before, I
+didn’t think it would be very useful in this case. I’ve been finding
+Frank clunky for testing the more I use it. This application may be a
+good opportunity to investigate the other integration testing frameworks
+I’ve been interested in, namely UIAutomation and
+[KIF](https://github.com/square/KIF).
+
+I also enjoyed working on the animation and would like to spend time on
+my next project playing with Blender for the graphics.
+
+If you are interested in the project, [the source is on
+GitHub](https://github.com/jamiely/bunny-matcher) and here’s [a link to
+the Bunny Matcher in the App
+Store](https://itunes.apple.com/us/app/bunny-matcher/id590498392?ls=1&mt=8).
+

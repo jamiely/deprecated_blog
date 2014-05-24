@@ -20,11 +20,19 @@ tags:
 - DSL
 comments: []
 ---
-<h2>Intro</h2>
-I've been working on this off and on for awhile. Simulator is a Ruby gem which provides functionality for creating discrete time models, and running those models.&nbsp;You can find the&nbsp;<a href="https://github.com/jamiely/simulator">Homepage for the Simulator gem on Github</a>.
+
+Intro
+-----
+
+I've been working on this off and on for awhile. Simulator is a Ruby gem
+which provides functionality for creating discrete time models, and
+running those models. You can find the [Homepage for the Simulator gem
+on Github](https://github.com/jamiely/simulator).
 
 Take the following two examples included with the gem.
-<h2>Ball Drop</h2>
+
+Ball Drop
+---------
 Let's say we want to model a ball that is dropped. Assuming I'm not modeling any bounces, I just need to show the affect of acceleration due to gravity on the position of the ball in space. Position is a function of velocity, which is a function of acceleration. We can model this system using the gem thusly.
 
 ```ruby
@@ -49,9 +57,19 @@ model = Simulator::Model.new do
 end
 ```
 
-There is a simple DSL provided that makes creating the models easier. Hopefully it's easy enough to follow. We initialize two static variables, ax and ay, which are set to 0 and -9.8, respectively (acceleration due to gravity is equal to -9.8m/s^2.)
+There is a simple DSL provided that makes creating the models easier.
+Hopefully it's easy enough to follow. We initialize two static
+variables, `ax` and `ay`, which are set to 0 and -9.8, respectively
+(acceleration due to gravity is equal to -9.8m/s\^2.)
 
-Next, we create two "equations". These are just dynamic variables, variables that depend on the values of other variables, or on some sort of computation. Note that we just pass regular ruby blocks to the eqtn method. These could really perform any ruby code. The result of the block gets stored in the variable given as a symbol. So, we state that the variable vy is dependent on a the addition of vy + ay. vy + ay will be the sum of the values vy and ay from the previous period. We do the same for vx.
+Next, we create two "equations". These are just dynamic variables,
+variables that depend on the values of other variables, or on some sort
+of computation. Note that we just pass regular ruby blocks to the eqtn
+method. These could really perform any ruby code. The result of the
+block gets stored in the variable given as a symbol. So, we state that
+the variable `vy` is dependent on a the addition of `vy + ay`. `vy + ay` will
+be the sum of the values `vy` and `ay` from the previous period. We do the
+same for `vx`.
 
 Finally, the position of the ball, the coordinates x and y, depend on the velocity. We also set the default initial position of (10, 100).
 
@@ -69,9 +87,12 @@ model_run.set ax: 5
 model_run.step
 ```
 
-This would give the ball an acceleration in the x direction, and this value would be propagated through subsequent periods (because the variable is static).
+This would give the ball an acceleration in the x direction, and this
+value would be propagated through subsequent periods (because the
+variable is static).
 
-Once we have stepped the run, we can request the series data in case we want to plot it. We can retrieve and plot the data like so:
+Once we have stepped the run, we can request the series data in case we
+want to plot it. We can retrieve and plot the data like so:
 
 ```ruby
 xs, ys = model_run.data.series :x, :y
@@ -90,8 +111,10 @@ image.save filename
 
 and we'd get something like this:
 
-<a href="http://jamie.ly/wordpress/wp-content/uploads/2013/01/drop.png"><img class="aligncenter size-medium wp-image-4681" alt="drop" src="http://jamie.ly/wordpress/wp-content/uploads/2013/01/drop-300x214.png" width="600" /></a>
-<h2>Mortgages</h2>
+[![drop](http://jamie.ly/wordpress/wp-content/uploads/2013/01/drop-300x214.png)](http://jamie.ly/wordpress/wp-content/uploads/2013/01/drop.png)
+
+Mortgages
+---------
 A mortgage involves a balance, loan payment, and interest rate. Let's create a model for that.
 
 ```ruby
@@ -109,7 +132,17 @@ model = Model.new do
 end
 ```
 
-We want the period to be monthly instead of annually, so note the monthly_rate variable above. We also have various default values we will override in a bit. Let's look at 3 types of mortgages, fixed, balloon, and variable. Fixed rate mortgages have a constant interest rate locked over a defined term (such as 30 years). Let's see what happens to the balance at the end of 30 years for each of these loan types. A balloon loan has a lower monthly payment, but a large payment at the end of the term. A variable loan has a term where the interest rate is indexed to a published interest rate, and then a period where the rate is fixed. Below, we simplify things by assuming that we will just pay different amounts for each of the terms.
+We want the period to be monthly instead of annually, so note the
+`monthly_rate` variable above. We also have various default values we
+will override in a bit. Let's look at 3 types of mortgages, fixed,
+balloon, and variable. Fixed rate mortgages have a constant interest
+rate locked over a defined term (such as 30 years). Let's see what
+happens to the balance at the end of 30 years for each of these loan
+types. A balloon loan has a lower monthly payment, but a large payment
+at the end of the term. A variable loan has a term where the interest
+rate is indexed to a published interest rate, and then a period where
+the rate is fixed. Below, we simplify things by assuming that we will
+just pay different amounts for each of the terms.
 
 ```ruby
 fixed = @model.new_run
@@ -132,12 +165,16 @@ variable.set payment: 2100
 variable.step 20*12
 ```
 
-And then we can get the series data and plot it similarly to before. It results in an image like the one below.
+And then we can get the series data and plot it similarly to before. It
+results in an image like the one below.
 
 * Fixed = yellow
 * Variable = blue
 * Balloon = red
 
-<a href="http://jamie.ly/wordpress/wp-content/uploads/2013/01/mortgage.png"><img class="aligncenter size-medium wp-image-4682" alt="mortgage" src="http://jamie.ly/wordpress/wp-content/uploads/2013/01/mortgage-300x187.png" width="600" /></a>
+[![mortgage](http://jamie.ly/wordpress/wp-content/uploads/2013/01/mortgage-300x187.png)](http://jamie.ly/wordpress/wp-content/uploads/2013/01/mortgage.png)
 
-You can find the <a href="https://github.com/jamiely/simulator">Homepage for the Simulator gem on Github</a>&nbsp;and&nbsp;f<a href="https://rubygems.org/gems/simulator">ind the gem on RubyGems</a>.
+You can find the [homepage for the Simulator gem on
+Github](https://github.com/jamiely/simulator) and [find the gem on
+RubyGems](https://rubygems.org/gems/simulator).
+
