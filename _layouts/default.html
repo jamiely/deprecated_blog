@@ -9,6 +9,7 @@
         <link rel="stylesheet" href="/css/syntax-solarized.css">
 
         <!-- Custom CSS -->
+        <link rel="stylesheet" href="/css/bootstrap.css">
         <link rel="stylesheet" href="/css/main.css">
 
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
@@ -16,51 +17,57 @@
     <body>
 
           <div class="site">
-            <div class="header">
-              <h1 class="title">
-                <a href="/" class="name">
-                  {{ site.name }}
-                </a>
-              </h1>
-              <h1 class="links">
-                <i class="fa fa-hand-o-right"></i>
-                <a href="https://github.com/jamiely" target="_blank">
-                  <i class="fa fa-github-alt"></i> 
-                </a>
-                <a href="https://twitter.com/jamiely" target="_blank">
-                  <i class="fa fa-twitter"></i> 
-                </a>
-                <a href="http://www.linkedin.com/pub/jamie-ly/13/aa4/168" target="_blank">
-                  <i class="fa fa-linkedin"></i> 
-                </a>
-              </h1>
+            <div class="header container-fluid">
+              <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                  <h1 class="title pull-left">
+                    <a href="/" class="name">
+                      {{ site.name }}
+                    </a>
+                  </h1>
+                  <h1 class="links pull-right">
+                    <i class="fa fa-hand-o-right"></i>
+                    <a href="https://github.com/jamiely" target="_blank">
+                      <i class="fa fa-github-alt"></i>
+                    </a>
+                    <a href="https://twitter.com/jamiely" target="_blank">
+                      <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="http://www.linkedin.com/pub/jamie-ly/13/aa4/168" target="_blank">
+                      <i class="fa fa-linkedin"></i>
+                    </a>
+                  </h1>
+                </div>
+              </div>
             </div>
 
                 {{ content }}
 
-            <div class="footer">
-              <div class="contact">
-                <p>
-                  Jamie Ly<br />
-                  Developer<br />
-                </p>
-              </div>
-              <div class="contact">
-                <p>
-                  <a href="http://github.com/jamiely/">GitHub</a><br />
-                  <a href="http://twitter.com/jamiely/">@jamiely</a><br />
-                  <a href="http://www.linkedin.com/pub/jamie-ly/13/aa4/168">LinkedIn</a><br />
-                  <a href="http://goodreads.com/jamiely">goodreads</a><br />
-                  <a href="http://blog.jamie.ly/resume/">Resume</a><br />
-                  <a href="https://coderwall.com/jamiely">Coderwall</a><br />
-                  <a href="http://stackoverflow.com/users/85905/jamie">StackOverflow</a>
-                </p>
-              </div>
-              <div class="links">
-                <p>
-                  <a href="http://jamie.ly/wordpress">Previous Blog</a><br />
-                  <a href="http://jamie.ly/wordpress/programs/">Programming Samples</a><br />
-                </p>
+            <div class="footer container-fluid">
+              <div class="row">
+                <div class="col-md-offset-2 col-md-8 footer-container">
+                  <div class="row">
+                    <div class="contact col-md-3">
+                      <div class="pull-right">
+                        <p>
+                          <a href="http://github.com/jamiely/">GitHub</a><br />
+                          <a href="http://twitter.com/jamiely/">@jamiely</a><br />
+                          <a href="http://www.linkedin.com/pub/jamie-ly/13/aa4/168">LinkedIn</a><br />
+                          <a href="http://goodreads.com/jamiely">goodreads</a><br />
+                          <a href="http://blog.jamie.ly/resume/">Resume</a><br />
+                          <a href="https://coderwall.com/jamiely">Coderwall</a><br />
+                          <a href="http://stackoverflow.com/users/85905/jamie">StackOverflow</a>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="links col-md-9">
+                      <p>
+                        <a href="http://jamie.ly/wordpress">Previous Blog</a><br />
+                        <a href="http://jamie.ly/wordpress/programs/">Programming Samples</a><br />
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
