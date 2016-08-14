@@ -1,6 +1,6 @@
 name: Jamie Ly
-markdown: redcarpet
-pygments: true
+markdown: kramdown
+highlighter: rouge
 safe: true
 lsi: false
 url: http://blog.jamie.ly
