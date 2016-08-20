@@ -22,7 +22,8 @@ just translate into the target language, and begin the implement to
 game using [test-driven development
 (TDD)](https://en.wikipedia.org/wiki/Test-driven_development).
 
-Rust has interested me for awhile because of it's lack of a garbage
+[Rust](https://www.rust-lang.org/en-US/)
+has interested me for awhile because of it's lack of a garbage
 collector and functional programming aspects. I'm not so interested in
 the performance improvements you get when you don't have GC. What's more
 interesting to me is how the language approaches memory management. I've
