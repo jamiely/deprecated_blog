@@ -7,6 +7,4 @@
 - C*
   - How to write a C* trigger
   - How tombstones are created
-- rust
-  - Writing connect-four
 
