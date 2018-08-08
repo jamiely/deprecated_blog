@@ -3,6 +3,7 @@ markdown: kramdown
 highlighter: rouge
 safe: true
 lsi: false
+baseurl: /blog
 url: http://blog.jamie.ly
 about_me: >
   I am a polyglot, full-stack developer with experience in front-end
