@@ -71,9 +71,7 @@ like this (and add it to `build.sbt`):
 
 ```scala
 
-def sendMessage(
-  hookUrl: String,
-  msg: String): Unit = {
+def sendMessage(hookUrl: String, msg: String): Unit = {
   import java.io.DataOutputStream
   import java.net.URL
   import java.net.HttpURLConnection
@@ -81,26 +79,17 @@ def sendMessage(
 
   // TODO: We should escape some message
   // characters to handle this properly
-  val postData =
-    s"""{"text": "$msg"}""".getBytes
-  val conn =
-    new URL(hookUrl).openConnection()
-    .asInstanceOf[HttpURLConnection]
+  val postData = s"""{"text": "$msg"}""".getBytes
+  val conn = new URL(hookUrl).openConnection() .asInstanceOf[HttpURLConnection]
   conn.setDoOutput( true )
   conn.setInstanceFollowRedirects( false )
-  conn.setRequestMethod(
-    "POST" )
-  conn.setRequestProperty(
-    "Content-Type", "application/json")
-  conn.setRequestProperty(
-    "charset", "utf-8")
-  conn.setRequestProperty(
-    "Content-Length",
-    postData.length.toString)
+  conn.setRequestMethod( "POST" )
+  conn.setRequestProperty( "Content-Type", "application/json")
+  conn.setRequestProperty( "charset", "utf-8")
+  conn.setRequestProperty( "Content-Length", postData.length.toString)
   conn.setUseCaches( false )
 
-  val wr = new DataOutputStream(
-   conn.getOutputStream )
+  val wr = new DataOutputStream( conn.getOutputStream )
   Try { wr.write(postData) }
   wr.close()
 }
@@ -121,22 +110,17 @@ That works, but it's not that useful since we have to hardcode the message.
 Let's make the message an `sbt` setting.
 
 ```scala
-// define a setting key that will
-// store the message we want to
+// define a setting key that will store the message we want to
 // send to Slack
-val slackMessage =
-  settingKey[String]("The message to send")
+val slackMessage = settingKey[String]("The message to send")
 
 // Set the Slack message setting value
 slackMessage := "Hello world"
 
-// binds the task key to a
-// method invocation
+// binds the task key to a method invocation
 slackNotify := {
-  // Whenever we want to use a setting
-  // inside another setting or task,
-  // we need to use `.value`. This is
-  // a macro which allows the future
+  // Whenever we want to use a setting inside another setting or task,
+  // we need to use `.value`. This is a macro which allows the future
   // value of `slackMessage` to be used.
   sendMessage(slackMessage.value)
 }
@@ -147,8 +131,7 @@ more useful.
 
 ```scala
 // Set the Slack message setting value
-slackMessage :=
-  s"Published new release ${version.value}"
+slackMessage := s"Published new release ${version.value}"
 ```
 
 We can use this whenever we publish a package.
@@ -175,31 +158,20 @@ sbt to automatically import the settings that we will define (rather
 than having the user manually import them in the `build.sbt` file).
 
 ```scala
-object SlackNotifyPlugin
-  extends AutoPlugin {
-  // this object can be named anything,
-  // as long as we import them into
+object SlackNotifyPlugin extends AutoPlugin {
+  // this object can be named anything, as long as we import them into
   // the current scope below.
   object autoImport {
-    val slackNotify =
-      taskKey[Unit](
-        "Sends a message to slack")
-    val slackMessage =
-      settingKey[String](
-        "The message to send")
-    val slackHookUrl =
-      settingKey[String](
-        "The hook url")
+    val slackNotify = taskKey[Unit]( "Sends a message to slack")
+    val slackMessage = settingKey[String]( "The message to send")
+    val slackHookUrl = settingKey[String]( "The hook url")
 
-    lazy val baseSlackNotifySettings:
-      Seq[Setting[_]] =
+    lazy val baseSlackNotifySettings: Seq[Setting[_]] =
       Def.settings(
         slackMessage := "",
         slackHookUrl := "",
         slackNotify := {
-          sendMessage(
-            slackHookUrl.value,
-            slackMessage.value)
+          sendMessage( slackHookUrl.value, slackMessage.value)
         }
     )
   }
@@ -207,26 +179,17 @@ object SlackNotifyPlugin
   // import all the keys we defined
   import autoImport._
 
-  // This plugin requires
-  // the JvmPlugin
-  override def requires =
-    sbt.plugins.JvmPlugin
+  // This plugin requires the JvmPlugin
+  override def requires = sbt.plugins.JvmPlugin
 
-  // this plugin must be
-  // specifically enabled
-  override def trigger =
-    allRequirements
+  // this plugin must be specifically enabled
+  override def trigger = allRequirements
 
-  // a group of settings that are
-  // automatically added to projects.
-  override val projectSettings =
-    baseSlackNotifySettings
+  // a group of settings that are automatically added to projects.
+  override val projectSettings = baseSlackNotifySettings
 
-  // this is the method we defined
-  // before that sends to Slack
-  protected def sendMessage(
-    hookUrl: String, msg: String):
-    Unit = ???
+  // this is the method we defined before that sends to Slack
+  protected def sendMessage( hookUrl: String, msg: String): Unit = ???
 }
 ```
 
@@ -354,8 +317,7 @@ plugin to your `project/plugins.sbt` file:
 ```scala
 addSbtPlugin("ly.jamie" % "sbt-slack-notify" % "0.3.1")
 
-resolvers ++= Seq(
-  Resolver.sonatypeRepo("releases"))
+resolvers ++= Seq(Resolver.sonatypeRepo("releases"))
 ```
 
 and then specifying some settings in your `build.sbt`:
@@ -364,7 +326,7 @@ and then specifying some settings in your `build.sbt`:
 lazy val root = (project in file(".")).
   settings(
     slackMessage := {
-        s"Just pushed version ${version.value}"
+      s"Just pushed version ${version.value}"
     },
     slackRoom := "#someroom",
     slackHookUrl := "http://slackhookurl" // or something like System.getenv("SBTSLACKNOTIFY_SLACKHOOKURL")

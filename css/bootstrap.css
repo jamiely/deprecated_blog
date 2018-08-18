@@ -6073,34 +6073,3 @@ button.close {
     display: none !important;
   }
 }
-.site h1,
-.site h2,
-.site h3,
-.site h4,
-.site h5,
-.site h6 {
-  color: #ba4024;
-}
-.header {
-  color: #e3b22a;
-}
-.header a {
-  color: #e3b22a;
-}
-.footer .footer-container {
-  border-top: 1px #EEE solid;
-  margin-top: 20px;
-  padding-top: 20px;
-}
-.footer .contact a {
-  color: #e3b22a;
-}
-.footer .contact p {
-  text-align: right;
-}
-ul.posts .date {
-  color: #AAA;
-  font-size: 19px;
-  font-size: 17px;
-  display: table !important;
-}

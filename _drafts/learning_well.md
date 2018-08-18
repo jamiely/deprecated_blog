@@ -13,12 +13,12 @@ becomes more and more important.
 
 # School
 
-I've been in school the majority of my life. Two years after my college
-graduation, I started to pursue an MBA at Temple part-time. A year after
+I've been in school the majority of my life. Two years after undergrad,
+I started to pursue an MBA at Temple part-time. A year after
 completing it, I enrolled at the University of Pennsylvania to complete
-a Master's Degree in Computer Science part-time. 
+a Master's Degree in Computer Science part-time.
 
-I recently finished the MSE program. I'm honestly pretty exhausted.
+I finished the MSE program in 2013 and at the time I was honestly pretty exhausted.
 Although I loved to be in that atmosphere, learning new things,
 relearning things, and enriching my existing knowledge, the amount of
 work and coordination required was taxing. 

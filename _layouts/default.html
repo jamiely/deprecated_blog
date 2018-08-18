@@ -10,8 +10,9 @@
         <!-- syntax highlighting CSS -->
         <link rel="stylesheet" href="{{ site.baseurl }}/css/syntax-solarized.css">
 
-        <!-- Custom CSS -->
+        <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="{{ site.baseurl }}/css/bootstrap.css">
+        <link rel="stylesheet" href="{{ site.baseurl }}/css/main.css">
 
         <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
     </head>
@@ -22,7 +23,7 @@
               <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                   <h1 class="title pull-left">
-                    <a href="/" class="name">
+                    <a href="{{ site.baseurl }}/" class="name">
                       {{ site.name }}
                     </a>
                   </h1>
@@ -94,5 +95,6 @@
           ga('send', 'pageview');
 
         </script>
+        <script src="{{ site.baseurl }}/javascript/main.js"></script>
     </body>
 </html>
