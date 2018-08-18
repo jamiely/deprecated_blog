@@ -38,6 +38,9 @@ ul.posts .date {
 .post pre code {
   font-size: 70%;
 }
+.post div.highlighter-rouge {
+  margin-bottom: 2em;
+}
 .links a:hover {
   text-decoration: none;
 }
