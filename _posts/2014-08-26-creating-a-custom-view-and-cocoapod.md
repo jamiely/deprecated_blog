@@ -22,7 +22,7 @@ for distribution.
 
 Here's a sample of the intended result:
 
-![Intended result](/assets/2014-08-26-creating-a-custom-view-and-cocoapod-intended.png)
+![Intended result]({{ site.baseurl}}/assets/2014-08-26-creating-a-custom-view-and-cocoapod-intended.png)
 
 To do this, I decided that the custom view should have a property called
 `text` (the same as a `UILabel`), which would supply the text. The view
@@ -45,7 +45,7 @@ character.
 }
 ```
 
-![iPhone 4 screenshot](/assets/2014-08-26-creating-a-custom-view-and-cocoapod-iphone4.png)
+![iPhone 4 screenshot]({{ site.baseurl}}/assets/2014-08-26-creating-a-custom-view-and-cocoapod-iphone4.png)
 
 # Implementing Copy
 

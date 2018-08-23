@@ -60,7 +60,7 @@ cleanup. The balloons would randomly spawn at a certain interval below
 the screen, and rise to a height above the screen, out of the viewport,
 and be removed from the layer.
 
-![](/assets/balloon-burst-old-treasures-02-300x153.png "balloon-burst-old-treasures-02")
+![]({{ site.baseurl}}/assets/balloon-burst-old-treasures-02-300x153.png "balloon-burst-old-treasures-02")
 
 Somewhere along the line, I decided that an bow and arrow would be
 unnecessary, and that touching a balloon would be enough to pop it. At
@@ -75,7 +75,7 @@ you should be able to earn points for popping balloons and touching a
 and treasure boxes. I also added clouds in the background, a timer, and
 score display, the concept of rounds, and a game over state.
 
-![](/assets/balloon-burst-old-treasures-01-300x153.png)
+![]({{ site.baseurl}}/assets/balloon-burst-old-treasures-01-300x153.png)
 
 I got this working, but it didn't seem especially targeted towards
 children. Lisa, my wife, tried it and confirmed as much. We talked about
@@ -94,7 +94,7 @@ normalized. Even after reducing the volume of the background music and
 popping sound, the words weren't loud enough. We'll have to redo the
 word sounds at some point.
 
-![](/assets/balloon-burst-ipad-play-01-300x233.png)
+![]({{ site.baseurl}}/assets/balloon-burst-ipad-play-01-300x233.png)
 
 At this point, I'm mostly done, but may add some more graphics and clean
 up the code. This project has been a great introduction to Cocos2D and

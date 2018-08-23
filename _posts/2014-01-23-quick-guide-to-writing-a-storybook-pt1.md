@@ -107,7 +107,7 @@ to help you layout:
 
 Here is my storyboard:
 
-![Storyboard](/assets/2014-01-23-storyboard.png)
+![Storyboard]({{ site.baseurl}}/assets/2014-01-23-storyboard.png)
 
 * Left: The moon runs around the heavens.
 * Center: The moon throws its food out, which become stars.

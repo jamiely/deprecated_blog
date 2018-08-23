@@ -52,7 +52,7 @@ the size of the scroll view (so that it takes up the entire screen). As
 we're testing this, it is helpful to set the background colors of the
 embed views to different colors to get a visual indicator.
 
-![Interface builder showing container views](/assets/2014-06-23-ios-top-bottom-split-view.png)
+![Interface builder showing container views]({{ site.baseurl}}/assets/2014-06-23-ios-top-bottom-split-view.png)
 
 # Setup panning
 

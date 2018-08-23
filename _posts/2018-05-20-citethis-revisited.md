@@ -34,7 +34,7 @@ extension code attempts to determine citation fields from looking at
 elements on the page. This citation may be added to a list
 of citations for ease of copying.
 
-![CiteThis! Old Version](/assets/2018-05-20_citethis_old.png)
+![CiteThis! Old Version]({{ site.baseurl}}/assets/2018-05-20_citethis_old.png)
 
 Here are some user stories for the citation as it currently functions:
 
@@ -101,7 +101,7 @@ I spent a little while just making things work again, including adding
 a sidebar instead of the bottom window. There didn't seem to be a way to
 make a window at the bottom like I had had before. I wound up with this:
 
-![CiteThis! Sidebar](/assets/2018-05-20_citethis_new_sidebar.png)
+![CiteThis! Sidebar]({{ site.baseurl}}/assets/2018-05-20_citethis_new_sidebar.png)
 
 There were also some changes I had to make with respect to:
 

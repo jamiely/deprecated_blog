@@ -9,7 +9,7 @@ tags:
   - phaser
 ---
 
-![Poker Match Logo](/assets/2015-04-11-poker-match-logo.png)
+![Poker Match Logo]({{ site.baseurl}}/assets/2015-04-11-poker-match-logo.png)
 
 # Intro
 
@@ -40,7 +40,7 @@ cards.
 [Puzzlecraft](https://itunes.apple.com/us/app/puzzle-craft/id489178757?mt=8)
 is an example of a game that uses this method. 
 
-![Poker Match Screenshot](/assets/2015-04-11-poker-match-screenshot.png)
+![Poker Match Screenshot]({{ site.baseurl}}/assets/2015-04-11-poker-match-screenshot.png)
 
 # Implementation Notes
 
@@ -82,9 +82,9 @@ technically challenging, this part required many iterations to get it
 looking decent. 
 
 <video controls>
-  <source src="/assets/2015-04-11-poker-match-v2.2.0-curtain-drop.mp4" type="video/mp4">
-  <source src="/assets/2015-04-11-poker-match-v2.2.0-curtain-drop.ogg" type="video/ogg">
-  <source src="/assets/2015-04-11-poker-match-v2.2.0-curtain-drop.webm" type="video/webm">
+  <source src="{{ site.baseurl}}/assets/2015-04-11-poker-match-v2.2.0-curtain-drop.mp4" type="video/mp4">
+  <source src="{{ site.baseurl}}/assets/2015-04-11-poker-match-v2.2.0-curtain-drop.ogg" type="video/ogg">
+  <source src="{{ site.baseurl}}/assets/2015-04-11-poker-match-v2.2.0-curtain-drop.webm" type="video/webm">
   Your browser does not support the <code>video</code> element.
 </video>
 

@@ -90,12 +90,12 @@ Here are my new scenes:
 > MERGED Secondary Scene: The moon plays with building blocks and puzzle
 > pieces.
 > 
-> ![Moony playing with a puzzle](/assets/2013-01-27-moon_playing_with_puzzle.png)
+> ![Moony playing with a puzzle]({{ site.baseurl}}/assets/2013-01-27-moon_playing_with_puzzle.png)
 > 
 > MERGED Secondary Scene: The moon mommy feeds the moon a meal of star
 > flakes, cautioning that he should eat to stay strong.
 > 
-> ![Sunny scolding Moony](/assets/2013-01-27-sun_scolding_moon.png)
+> ![Sunny scolding Moony]({{ site.baseurl}}/assets/2013-01-27-sun_scolding_moon.png)
 
 # Refinement
 
@@ -117,7 +117,7 @@ give you a greater sense of completion along each step along the way.
 >
 > MERGED Secondary Scene: The moon plays with building blocks and puzzle pieces.
 >
-> ![Moony plays with a puzzle](/assets/2013-01-27-moon_playing_sketch.png)
+> ![Moony plays with a puzzle]({{ site.baseurl}}/assets/2013-01-27-moon_playing_sketch.png)
 > 
 > MERGED Secondary Scene: The moon mommy feeds the moon a meal of star
   flakes, cautioning that he should eat to stay strong.
@@ -125,7 +125,7 @@ give you a greater sense of completion along each step along the way.
 > 
 > Secondary Scene: The moon gets weaker and more dim.
 >
-> ![Moony blows his/her nose](/assets/2013-01-27-moon_blowing_nose.png)
+> ![Moony blows his/her nose]({{ site.baseurl}}/assets/2013-01-27-moon_blowing_nose.png)
 > 
 > MERGED Primary Scene: The moon goes hungry and is carried around by stars (End)
 

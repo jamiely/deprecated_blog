@@ -58,11 +58,11 @@ that minimizes the total amount of content you need to create.
 
 Here's a comparison of a couple different styles of the same scene:
 
-![Moon Throwing Up Painting](/assets/2014-01-30-moon_throwing_up_painting.png)
+![Moon Throwing Up Painting]({{ site.baseurl}}/assets/2014-01-30-moon_throwing_up_painting.png)
 
-![Moon Throwing Up Sketch](/assets/2014-01-30-moon_throwing_up_sketch.png)
+![Moon Throwing Up Sketch]({{ site.baseurl}}/assets/2014-01-30-moon_throwing_up_sketch.png)
 
-![Moon Throwing Up Vector](/assets/2014-01-30-moon_throwing_up_vector.png)
+![Moon Throwing Up Vector]({{ site.baseurl}}/assets/2014-01-30-moon_throwing_up_vector.png)
 
 # First WIP
 
