@@ -6,7 +6,7 @@ title: Using R with ggplot2
 author: Jamie
 date: 2018-11-01
 categories:
-- 
+- software
 tags:
 - r
 - rlang
@@ -212,7 +212,7 @@ returns_by_incomeFactor$incomeFactor <- factor(
   levels=unique(returns_by_incomeFactor$incomeFactor))
 ```
 
-```r
+```
              incomeFactor returns min_value
 1        $1 under $25,000 4562430         1
 4   $25,000 under $50,000 2822410     25000
@@ -236,7 +236,6 @@ bar <- ggplot(returns_by_incomeFactor,
 plot(bar)
 ```
 
-
 ![2014 Returns by Gross Income Bar Graph]({{site.baseurl}}/assets/20181101_returns_by_gross_income_bar_multiple.png)
 
 ```r
@@ -252,9 +251,11 @@ bar_single <-
 plot(bar_single)
 ```
 
+The total number of returns is easier to see if we use a stacked bar.
+
 ![2014 Returns by Gross Income Bar Graph]({{site.baseurl}}/assets/20181101_returns_by_gross_income_bar_single.png)
 
-And a pie chart, [if that's your thing](https://www.businessinsider.com/pie-charts-are-the-worst-2013-6),
+Here's a pie chart, [if that's your thing](https://www.businessinsider.com/pie-charts-are-the-worst-2013-6),
 although they look terrible in ggplot.
 
 ```r
@@ -374,21 +375,23 @@ Next, we will sum gross income by zipcode. We will also make sure that centroids
 are included.
 
 ```r
-income_by_zip_raw <- aggregate(income ~ zip, data=irs2014, sum)
+by_zip_raw <- aggregate(cbind(income, returns) ~ zip, data=irs2014, sum)
+by_zip_raw <- by_zip_raw[!(by_zip_raw$zip %in% c("00000", "99999")), ]
 pazips_data$zip <- pazips_data$ZCTA5CE
-income_by_zip_with_centroids <- join(income_by_zip_raw, pazips_data, by="zip")
+by_zip_with_centroids <- join(by_zip_raw, pazips_data, by="zip")
 
 # We reformat the dataframe above into a new dataframe containing only the
 # fields we need because extra fields can cause issues with ggplot in that
 # ggplot makes certain assumptions about field names.
-income_by_zip <- data.frame(
-  id = income_by_zip_with_centroids$id,
-  income = income_by_zip_with_centroids$income,
-  zip = income_by_zip_with_centroids$zip,
-  clong = income_by_zip_with_centroids$clong,
-  clat = income_by_zip_with_centroids$clat
+by_zip <- data.frame(
+  id = by_zip_with_centroids$id,
+  income = by_zip_with_centroids$income,
+  returns = by_zip_with_centroids$returns,
+  zip = by_zip_with_centroids$zip,
+  clong = by_zip_with_centroids$clong,
+  clat = by_zip_with_centroids$clat
 )
-income_by_zip <- income_by_zip[income_by_zip$id %in% pazips_nearby$id,]
+by_zip <- by_zip[by_zip$id %in% pazips_nearby$id,]
 ```
 
 ```
@@ -411,11 +414,203 @@ map_points <- data.frame(
   x = pazips_points_nearby$long,
   y = pazips_points_nearby$lat
 )
-ggplot(income_by_zip, aes(fill=income)) +
+ggplot(by_zip, aes(fill=income)) +
   geom_map(aes(map_id = id), map=map_points) +
   # geom_label adds a background color to the text, making it easier to read.
   geom_label(aes(label=zip, x=clong, y=clat), color="white") +
-  expand_limits(map_points)
+  expand_limits(map_points) +
+  theme_classic() +
+  theme(
+    axis.line = element_blank(),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()) +
+  ggtitle("2014 IRS Total Income by Zipcode")
 ```
 
 ![PA Income by Zipcode map]({{ site.baseurl }}/assets/20181101_pa_zipcode_income_map.png)
+
+Although this shows the sum of the gross income in each zipcode, we also want
+to see the number of returns because the gross income could be far outbalanced
+by fewer larger gross incomes. We also change the color so that it looks a bit
+different.
+
+```r
+ggplot(by_zip, aes(fill=returns)) +
+  geom_map(aes(map_id = id), map=map_points) +
+  # geom_label adds a background color to the text, making it easier to read.
+  geom_label(aes(label=zip, x=clong, y=clat), color="white") +
+  expand_limits(map_points) +
+  scale_fill_gradient(low="palegreen", high="forestgreen") +
+  theme_classic() +
+  theme(
+    axis.line = element_blank(),
+    axis.title = element_blank(),
+    axis.text = element_blank(),
+    axis.ticks = element_blank()) +
+  ggtitle("2014 IRS Returns by Zipcode")
+```
+
+![PA Income by Zipcode map]({{ site.baseurl }}/assets/20181101_pa_zipcode_returns_map.png)
+
+We can see some possible insights here. Zipcode 19035 (Gladwyne), at the
+bottom left, has a total income on the high end, but has few returns. This
+indicates that this area is more affluent than the other members of this
+cohort. Zipcode 19120 (Olney), at the bottom middle, has a high number of
+returns but a total income on the lower end, indicating it is a poorer area
+than the other locations in these maps.
+
+# Deeper Analysis
+
+These maps are a nice looking visualization, but are probably better as part of
+a report, once you have a story to tell. Some other useful graphs...
+
+We can compare the returns and income for each zipcode using a scatterplot.
+
+```r
+# remove the row with zipcode not weird
+by_zip_all <- by_zip_raw[!(by_zip_raw$zip %in% c("00000", "99999")), ]
+# render a scatterplot
+scatterplot <- ggplot(by_zip_all, aes(x=income, y=returns)) +
+  geom_point() +
+  ggtitle("Returns vs Income")
+plot(scatterplot)
+```
+
+![2014 IRS Returns vs Income Scatterplot]({{ site.baseurl }}/assets/20181101_pa_zipcode_returns_vs_income_scatter.png)
+
+We can make things more clear by adding annotations to the graph which makes
+areas of interest clearer.
+
+```r
+income_range <- range(by_zip_all$income)
+income_mid <- sum(income_range)/2
+
+returns_range <- range(by_zip_all$returns)
+returns_mid <- sum(returns_range)/2
+
+low_income_area <- data.frame(x = income_range[1], y = returns_mid)
+low_income_area[nrow(low_income_area) + 1,] =
+  list(income_mid, returns_mid)
+low_income_area[nrow(low_income_area) + 1,] =
+  list(income_mid, returns_range[2])
+low_income_area[nrow(low_income_area) + 1,] =
+  list(income_range[1], returns_range[2])
+low_income_area$id <- rownames(low_income_area)
+
+ggplot(by_zip_all, aes(x=income, y=returns)) +
+  ggtitle("Returns vs Income") +
+  geom_text(aes(label=zip)) +
+  annotate("rect",
+    xmin=income_range[1], xmax=income_mid,
+    ymin=returns_mid, ymax=returns_range[2],
+    alpha = .2, fill="red") + 
+  annotate("text", 
+    x=income_range[1], y=returns_range[2], hjust=0, vjust=1,
+    label="Low Income Area", color="white") + 
+  annotate("rect", 
+    xmin=income_mid, xmax=income_range[2],
+    ymin=returns_range[1], ymax=returns_mid,
+    alpha = .2, fill="green") +
+  annotate("text", 
+    x=income_mid, y=returns_mid, hjust=0, vjust=1,
+    label="High Income Area", color="white")
+```
+
+![2014 IRS Returns vs Income Scatterplot Annotated]({{ site.baseurl }}/assets/20181101_pa_zipcode_returns_vs_income_scatter_annotated.png)
+
+One of the problems with this is that all of the zipcode information overlaps
+in this type of scatterplot. We can use a weighted scatterplot to convey the
+same information, and, at the same time, convey the geospatial relationship of
+the zipcodes. We will use size to indicate the number of returns, fill
+to indicate the total income, and x and y coordinates for latitude and longitude
+of each zipcode's centroid. This is really a combination of the two maps above,
+with the zipcodes removed. There are solutions for displaying the zipcodes in a
+readable way that we won't go into. [1], [2]
+
+```r
+by_zip_with_centroids <- by_zip_with_centroids[!(by_zip_with_centroids$zip %in% c("00000", "99999")), ]
+ggplot(by_zip_with_centroids, aes(x=clong, y=clat, size=returns, fill=income)) +
+  geom_point(shape=21) +
+  scale_fill_gradientn(colors=rainbow(4)) +
+  ggtitle("Returns and Income by Zipcodes") +
+  xlab("Longitude") + ylab("Latitude")
+```
+
+![Returns and Income by Zipcode]({{site.baseurl}}/assets/20181101_pa_zipcode_returns_vs_income_weighted_scatter.png)
+
+# Working with Categorical data
+
+Recall that there is a categorical column in the data which creates groups by
+gross income. We can use that factor to produce some other graphs.
+
+Let's compare the bottom and top 30 zip codes in terms of total income. We'll
+create a stacked bar chart showing these zip codes and how the gross income
+classes make up the total income.
+
+```r
+by_zip_income_asc <- by_zip_raw[order(by_zip_raw$income),]
+by_zip_income_desc <- by_zip_raw[order(-by_zip_raw$income),]
+
+target_zips <- c(
+  as.character(head(by_zip_income_asc$zip, 30)), 
+  as.character(head(by_zip_income_desc$zip, 30)))
+
+by_zip_excerpt <- irs2014[irs2014$zip %in% target_zips,]
+by_zip_excerpt$incomeFactor <- factor(
+  by_zip_excerpt$incomeFactor,
+  levels=unique(by_zip_excerpt$incomeFactor))
+
+# Change the levels for the zip column to order by income
+by_zip_excerpt$zip <- factor(by_zip_excerpt$zip, levels = target_zips)
+ggplot(by_zip_excerpt,
+  aes(x = zip, weight = income, fill=incomeFactor)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle=45, hjust=1)) +
+  scale_y_continuous(trans = "log10")
+```
+
+![Income for the bottom and top 50 zip codes by Gross Income class]({{ site.baseurl }}/assets/20181101_income_by_zip_stacked_bar_log.png)
+
+We can see that the bottom zip codes are missing gross income classes
+"$100,000 under $200,000" and "$200,000 or more". Note zip code 16802, State
+College, which is made up mostly of the lowest two gross income categories.
+Another notable area is Gladwyne (19035). We can see that the size of largest income
+class, "$200,000 or more" is among the largest across all zip codes, and that
+each other class is smaller than the other zip codes. We can make this
+relationship clearer if we use a regular, instead of logarithmic scale, for
+the y axis.
+
+![Income for the bottom and top 50 zip codes by Gross Income class]({{ site.baseurl }}/assets/20181101_income_by_zip_stacked_bar.png)
+
+We can focus on the gross income class "$200,000" to find more affluent areas.
+
+```r
+high_income <- irs2014[irs2014$incomeFactor == "$200,000 or more",]
+high_income <- high_income[order(-high_income$income),]
+high_income <- high_income[high_income$income > 0,]
+rownames(high_income) <- NULL
+high_income$order <- rownames(high_income)
+high_income_excerpt <- head(high_income, 50)
+high_income_excerpt$zip <- factor(
+  high_income_excerpt$zip, levels=high_income_excerpt$zip)
+ggplot(high_income_excerpt,
+  aes(x = zip, weight=income)) +
+  geom_bar() +
+  theme(axis.text.x = element_text(angle=45, hjust=1))
+```
+
+![Top 50 Zip codes by Total Income in the $200,000 or more category]({{ site.baseurl }}/assets/20181101_high_income_by_zip_top_50.png)
+
+We can see that the largest total income areas are Wayne (19807), Rittenhouse
+Square (19103), and Bryn Mawr (19010).
+
+# Conclusion
+
+In this post, we cleaned up IRS Tax Return data in an Excel Spreadsheet. We
+aggregated results on various dimensions, and evaluated the results using
+different `ggplot2` visualizations. `ggplot2` is a rich visualization library
+for `r` that has great possibilities for customization.
+
+[1]: https://cran.r-project.org/web/packages/ggrepel/vignettes/ggrepel.html
+[2]: http://directlabels.r-forge.r-project.org/

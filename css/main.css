@@ -44,3 +44,7 @@ ul.posts .date {
 .links a:hover {
   text-decoration: none;
 }
+
+img {
+  max-width: 100%;
+}
