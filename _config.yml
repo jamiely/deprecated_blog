@@ -5,7 +5,7 @@ safe: true
 lsi: false
 baseurl: /blog
 future: true
-url: http://blog.jamie.ly
+url: https://jamie.ly/blog
 about_me: >
   I am a polyglot, full-stack developer with experience in front-end
   web development, back-end development including RESTful APIs,

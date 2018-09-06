@@ -48,3 +48,10 @@ ul.posts .date {
 img {
   max-width: 100%;
 }
+.tags-page .post-tag, .tags-page .post-date {
+  font-size: small;
+  font-weight: normal;
+}
+.tags .label {
+  font-weight: normal;
+}

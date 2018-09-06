@@ -6,15 +6,18 @@ layout: default
     <div class="col-md-offset-3 col-md-6">
       <h1 class="post-title">{{ page.title }}</h1>
       <p class="meta">{{ page.date | date_to_string }}</p>
-      
+
+      {% include tag_list.html %}
+
       <div class="post">
       {{ content }}
       </div>
-      
-      <div class="comments">
-        {% if page.comments %}
-          
-        {% endif %}
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          Looking for more content? Check out other posts with the same tags:
+          {% include tag_list.html %}
+        </div>
       </div>
     </div>
   </div>

@@ -1,0 +1,69 @@
+---
+layout: page
+title: Site Tags
+---
+
+{% comment %}
+=======================
+https://codinfox.github.io/dev/2015/03/06/use-tags-and-categories-in-your-jekyll-based-github-pages/
+The following part extracts all the tags from your posts and sort tags, so that you do not need to manually collect your tags to a place.
+=======================
+{% endcomment %}
+{% assign rawtags = "" %}
+{% for post in site.posts %}
+    {% assign ttags = post.tags | join:'|' | append:'|' %}
+    {% assign rawtags = rawtags | append:ttags %}
+{% endfor %}
+{% assign rawtags = rawtags | split:'|' | sort %}
+
+{% comment %}
+=======================
+The following part removes dulpicated tags and invalid tags like blank tag.
+=======================
+{% endcomment %}
+{% assign tags = "" %}
+{% for tag in rawtags %}
+    {% if tag != "" %}
+        {% if tags == "" %}
+            {% assign tags = tag | split:'|' %}
+        {% endif %}
+        {% unless tags contains tag %}
+            {% assign tags = tags | join:'|' | append:'|' | append:tag | split:'|' %}
+        {% endunless %}
+    {% endif %}
+{% endfor %}
+
+
+{% comment %}
+=======================
+The purpose of this snippet is to list all your posts posted with a certain tag.
+=======================
+{% endcomment %}
+<ul class="tags tags-page list-unstyled">
+{% for tag in tags %}
+  <li class="tag">
+    <a name="{{ tag | slugify }}"></a><span class="tag-title" id="{{ tag | slugify }}">{{ tag }}</span>
+    <ul class="tag-posts">
+     {% for post in site.posts %}
+         {% if post.tags contains tag %}
+         <li class="tag-post">
+            <a href="{{ site.baseurl }}{{ post.url }}">
+                <span class="post-title">{{ post.title }}</span>
+                <span class="post-date">{{ post.date | date_to_string }}</span>
+            </a>
+            <ul class="post-tags list-inline">
+            {% for tag in post.tags %}
+            <li class="post-tag"><a class="post-tag label label-default" href="{{ site.baseurl }}/tags.html#{{ tag | slugify }}">{{ tag }}</a></li>
+            {% endfor %}
+            </ul>
+         </li>
+         {% endif %}
+     {% endfor %}
+     {% if site.data.antiquity.blog_tags contains tag %}
+       <li><a href="{{ site.data.antiquity.tag_baseurl }}{{ tag }}">
+           Posts at <span placeholder="{{ site.data.antiquity.title }} is my old blog">{{ site.data.antiquity.title }}</span> related to {{ tag }}</a></li>
+     {% endif %}
+    </ul>
+  </li>
+{% endfor %}
+</ul>

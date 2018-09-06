@@ -1,0 +1,7 @@
+{% if page.tags %}
+<ul class="tags list-inline">
+{% for tag in page.tags %}
+    <li class="tag"><a class="label label-default" href="{{ site.baseurl}}/tags.html#{{ tag | slugify }}">{{ tag }}</a></li>
+{% endfor %}
+</ul>
+{% endif %}
