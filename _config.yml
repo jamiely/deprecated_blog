@@ -1,7 +1,6 @@
 name: Jamie Ly
 markdown: kramdown
 highlighter: rouge
-safe: true
 lsi: false
 baseurl: /blog
 future: true
@@ -11,3 +10,11 @@ about_me: >
   web development, back-end development including RESTful APIs,
   native iOS development, and devops. I am interested in
   software maintainability, functional programming, and game development.
+author:
+  twitter: jamiely
+feed:
+  path: feed.xml
+  categories:
+    - programming
+plugins:
+  - jekyll-feed
