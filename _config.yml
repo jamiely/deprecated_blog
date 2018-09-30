@@ -25,6 +25,7 @@ pagination:
   enabled: true
   debug: false
   per_page: 100
+  sort_reverse: true
   trail: 
     before: 2 # The number of links before the current page
     after: 2  # The number of links after the current page
